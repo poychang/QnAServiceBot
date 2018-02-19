@@ -1,0 +1,24 @@
+<header>
+  <div class="container">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row fxLayoutAlign="space-between center">
+        <div>
+          <span routerLink="/">{{ title }}</span>
+        </div>
+        <div>
+
+          <span *showAuthed="false">
+            <button mat-button routerLink="/login">登入</button>
+          </span>
+
+          <span *showAuthed="true" fxLayoutAlign="end center">
+            <img [src]="currentUser?.image" *ngIf="currentUser?.image" class="user-pic" />
+            <span class="user-name">{{ currentUser?.username }}</span>
+            <button mat-button (click)="logout()">登出</button>
+          </span>
+
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+</header>
