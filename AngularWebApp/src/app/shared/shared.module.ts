@@ -5,6 +5,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 import {MaterialModule} from './material/material.module';
 import {ApiService} from './services/api.service';
+import {AuthGuard} from './services/auth-guard.service';
 import {UserService} from './services/user.service';
 import {ShowAuthedDirective} from './show-authed.directive';
 
@@ -16,6 +17,6 @@ import {ShowAuthedDirective} from './show-authed.directive';
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: SharedModule, providers: [ApiService, UserService] };
+    return { ngModule: SharedModule, providers: [ApiService, AuthGuard, UserService] };
   }
 }
