@@ -4,6 +4,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import {MaterialModule} from './material/material.module';
+import {ApiService} from './services/api.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule],
@@ -11,4 +12,7 @@ import {MaterialModule} from './material/material.module';
     [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule]
 })
 export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return { ngModule: SharedModule, providers: [ApiService] };
+  }
 }
