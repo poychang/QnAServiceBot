@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Reset user agent stylesheet */
+@import '~normalize.css/normalize.css';
+
+/* Custom Material Version */
+@import 'assets/theme/blue-teal';
