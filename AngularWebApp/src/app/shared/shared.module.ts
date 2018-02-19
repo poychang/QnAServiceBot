@@ -6,11 +6,13 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './material/material.module';
 import {ApiService} from './services/api.service';
 import {UserService} from './services/user.service';
+import {ShowAuthedDirective} from './show-authed.directive';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule],
   exports:
-    [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule]
+    [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, ShowAuthedDirective],
+  declarations: [ShowAuthedDirective]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
