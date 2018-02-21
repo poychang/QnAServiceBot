@@ -1,0 +1,4 @@
+建立專案的指令	ng new <project-name> [options]
+建立專案時同時產生路由模組	ng new <project-name> --routings
+建立專案時只輸出會建立的檔案名稱，不會真的產生檔案	ng new <project-name> --dry-run
+建立專案時不建立 Git 庫	ng new <project-name> --skip-git
