@@ -13,20 +13,30 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		ReleaseQnAMakerBot|Any CPU = ReleaseQnAMakerBot|Any CPU
+		ReleaseQnAServiceBot|Any CPU = ReleaseQnAServiceBot|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{280333A4-840C-442D-9332-17AEB6751F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{280333A4-840C-442D-9332-17AEB6751F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{280333A4-840C-442D-9332-17AEB6751F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{280333A4-840C-442D-9332-17AEB6751F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280333A4-840C-442D-9332-17AEB6751F3C}.ReleaseQnAMakerBot|Any CPU.ActiveCfg = Release|Any CPU
+		{280333A4-840C-442D-9332-17AEB6751F3C}.ReleaseQnAServiceBot|Any CPU.ActiveCfg = Release|Any CPU
+		{280333A4-840C-442D-9332-17AEB6751F3C}.ReleaseQnAServiceBot|Any CPU.Build.0 = Release|Any CPU
 		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.ReleaseQnAMakerBot|Any CPU.ActiveCfg = Release|Any CPU
+		{B4956121-5BCF-475C-A5BE-C324D1C98CD6}.ReleaseQnAServiceBot|Any CPU.ActiveCfg = Release|Any CPU
 		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.ReleaseQnAMakerBot|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.ReleaseQnAMakerBot|Any CPU.Build.0 = Release|Any CPU
+		{9C7E3A46-B60F-4052-9A21-DC8D1A942216}.ReleaseQnAServiceBot|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
