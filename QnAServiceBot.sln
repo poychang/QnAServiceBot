@@ -37,7 +37,6 @@ Global
 		{069B5611-0105-4801-81EE-8915DDBB41B0}.ReleaseQnAMakerBot|Any CPU.ActiveCfg = Release|Any CPU
 		{069B5611-0105-4801-81EE-8915DDBB41B0}.ReleaseQnAMakerBot|Any CPU.Build.0 = Release|Any CPU
 		{069B5611-0105-4801-81EE-8915DDBB41B0}.ReleaseQnAServiceBot|Any CPU.ActiveCfg = Release|Any CPU
-		{069B5611-0105-4801-81EE-8915DDBB41B0}.ReleaseQnAServiceBot|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
