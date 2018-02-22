@@ -27,6 +27,8 @@ namespace QnAMakerBot.Dialogs
             
             var qnaSubscriptionKey = Utils.GetAppSetting("QnASubscriptionKey");
             var qnaKBId = Utils.GetAppSetting("QnAKnowledgebaseId");
+            //var qnaSubscriptionKey = ConfigurationManager.AppSettings["QnASubscriptionKey"];
+            //var qnaKBId = ConfigurationManager.AppSettings["QnAKnowledgebaseId"];
 
             // QnA Subscription Key and KnowledgeBase Id null verification
             if (!string.IsNullOrEmpty(qnaSubscriptionKey) && !string.IsNullOrEmpty(qnaKBId))
@@ -54,7 +56,14 @@ namespace QnAMakerBot.Dialogs
         // Parameters to QnAMakerService are:
         // Required: subscriptionKey, knowledgebaseId, 
         // Optional: defaultMessage, scoreThreshold[Range 0.0 – 1.0]
-        public BasicQnAMakerDialog() : base(new QnAMakerService(new QnAMakerAttribute(Utils.GetAppSetting("QnASubscriptionKey"), Utils.GetAppSetting("QnAKnowledgebaseId"), "我找不到適合的答案耶...", 0.5)))
-        {}
+        public BasicQnAMakerDialog() : base(
+            new QnAMakerService(
+                new QnAMakerAttribute(
+                     Utils.GetAppSetting("QnASubscriptionKey"), Utils.GetAppSetting("QnAKnowledgebaseId"),
+                    /*ConfigurationManager.AppSettings["QnASubscriptionKey"], ConfigurationManager.AppSettings["QnAKnowledgebaseId"],*/
+                    "我找不到適合的答案耶 >.<", 0.5)
+                )
+            )
+        { }
     }
 }
