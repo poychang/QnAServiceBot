@@ -1,13 +1,13 @@
-using Autofac;
-using System.Web.Http;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Reflection;
+using System.Web.Http;
+using Autofac;
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 
-namespace SimpleEchoBot
+namespace QnAMakerBot
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -1,16 +1,16 @@
-using System;
+﻿using System;
+using System.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
-
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.CognitiveServices.QnAMaker;
 using Microsoft.Bot.Connector;
 
-namespace Microsoft.Bot.Sample.QnABot
+namespace QnAMakerBot.Dialogs
 {
     [Serializable]
-    public class RootDialog :  IDialog<object>
+    public class RootDialog : IDialog<object>
     {
         public async Task StartAsync(IDialogContext context)
         {
@@ -37,7 +37,6 @@ namespace Microsoft.Bot.Sample.QnABot
             {
                 await context.PostAsync("Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Get them at https://qnamaker.ai.");
             }
-            
         }
 
         private async Task AfterAnswerAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
@@ -51,7 +50,7 @@ namespace Microsoft.Bot.Sample.QnABot
     [Serializable]
     public class BasicQnAMakerDialog : QnAMakerDialog
     {
-        // Go to https://qnamaker.ai and feed data, train & publish your QnA Knowledgebase.        
+        // Go to https://qnamaker.ai and feed data, train & publish your QnA Knowledge base.
         // Parameters to QnAMakerService are:
         // Required: subscriptionKey, knowledgebaseId, 
         // Optional: defaultMessage, scoreThreshold[Range 0.0 – 1.0]
