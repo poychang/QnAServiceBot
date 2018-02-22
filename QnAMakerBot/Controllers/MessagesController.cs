@@ -1,14 +1,12 @@
-using System;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-
-using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
-using System.Net.Http;
-using System.Diagnostics;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Connector;
+using QnAMakerBot.Dialogs;
 
-namespace Microsoft.Bot.Sample.QnABot
+namespace QnAMakerBot.Controllers
 {
     [BotAuthentication]
     public class MessagesController : ApiController
