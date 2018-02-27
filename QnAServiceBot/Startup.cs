@@ -21,9 +21,10 @@ namespace QnAServiceBot
         {
             services.AddMvc();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(option =>
+                .AddCookie(options =>
                 {
-                    option.Cookie.Expiration = new TimeSpan(0, int.Parse(Configuration["Cookie:Expiration"]), 0);
+                    options.LoginPath = "/api/auth/login";
+                    options.Cookie.Expiration = new TimeSpan(0, int.Parse(Configuration["Cookie:Expiration"]), 0);
                 });
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {

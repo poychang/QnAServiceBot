@@ -1,11 +1,13 @@
-﻿using System.Configuration;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web.Http;
 using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
+using QnAMakerBot.AgentModule;
 
 namespace QnAMakerBot
 {
@@ -16,7 +18,6 @@ namespace QnAMakerBot
             // Bot Storage: This is a great spot to register the private state storage for your bot. 
             // We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
             // For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
-
             Conversation.UpdateContainer(
                 builder =>
                 {
@@ -34,7 +35,11 @@ namespace QnAMakerBot
                         .AsSelf()
                         .SingleInstance();
 
+                    builder.RegisterModule<AgentModuleLoader>();
+                    builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+                    builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
                 });
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
