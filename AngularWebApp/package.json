@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "5.2.7",
     "@angular/router": "5.2.7",
     "@angular/service-worker": "5.2.7",
+    "botframework-webchat": "^0.11.4",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
     "normalize.css": "^8.0.0",
