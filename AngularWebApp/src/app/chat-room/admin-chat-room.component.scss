@@ -1,0 +1,19 @@
+.container {
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chat-room-menu{
+  padding: 0 10px 10px 10px;
+}
+
+.chat-room {
+  width: 100vw;
+  min-width: 340px;
+  max-width: 600px;
+  padding: 0 10px 10px 10px;
+  mat-card {
+    min-height: calc(100vh - 200px);
+  }
+}
