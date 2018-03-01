@@ -1,5 +1,14 @@
+.container {
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .login-panel {
   min-width: 320px;
+  .login-form{
+    margin: 15px 0 15px 0;
+  }
 }
 
 .login-message {
