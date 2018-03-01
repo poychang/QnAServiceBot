@@ -20,10 +20,10 @@ namespace QnAServiceBot.Controllers
 
         private readonly List<UserModel> _userList = new List<UserModel>()
         {
-            new UserModel(){ Username = "Poy", Image = "./assets/images/man.svg", Role = "user" },
-            new UserModel(){ Username = "Mary", Image = "./assets/images/woman.svg", Role = "user" },
-            new UserModel(){ Username = "IT", Image = "./assets/images/it-guy.svg", Role = "admin" },
-            new UserModel(){ Username = "Bot", Image = "./assets/images/bot.svg", Role = "bot" },
+            new UserModel(){ Id="1", Username = "Poy", Image = "./assets/images/man.svg", Role = "user" },
+            new UserModel(){ Id="2", Username = "Mary", Image = "./assets/images/woman.svg", Role = "user" },
+            new UserModel(){ Id="3", Username = "IT", Image = "./assets/images/it-guy.svg", Role = "admin" },
+            new UserModel(){ Id="4", Username = "Bot", Image = "./assets/images/bot.svg", Role = "bot" },
         };
 
         public UserController(IConfiguration configuration)
