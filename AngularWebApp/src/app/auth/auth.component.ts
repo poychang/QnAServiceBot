@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {tap} from 'rxjs/operators';
 
 import {UserService} from '../shared';
 
@@ -25,7 +26,14 @@ export class AuthComponent implements OnInit {
 
     const credentials = this.authForm.value;
     this.userService.attemptAuth(credentials)
-      .subscribe(data => this.router.navigateByUrl('/'), err => {
+      .pipe(tap((user) => {
+        if (user.role === 'admin') {
+          this.router.navigateByUrl('/admin-chat-room');
+        } else {
+          this.router.navigateByUrl('/user-chat-room');
+        }
+      }))
+      .subscribe(() => {}, err => {
         console.log(err);
         this.error = '登入失敗，請重新登入';
       });

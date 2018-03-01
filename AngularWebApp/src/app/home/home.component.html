@@ -1,4 +1,4 @@
-<section fxLayout="column" fxLayoutAlign="center center">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
   <p>Landing Page</p>
-  <p>{{ user$ | async | json}}</p>
-</section>
+  <button mat-raised-button color="primary" *ngIf="isAuthenticated" (click)="enter()">進入諮詢室</button>
+</div>

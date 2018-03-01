@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 
 import {User, UserService} from '../shared';
@@ -9,7 +10,7 @@ import {User, UserService} from '../shared';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   isAuthenticated: boolean;
   user$: Observable<User> = this.userService.currentUser$;
@@ -17,5 +18,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.userService.isAuthenticated$.subscribe(
       (authenticated) => { this.isAuthenticated = authenticated; });
+  }
+
+  enter() {
+    this.user$.subscribe(user => {
+      if (user.role === 'admin') {
+        this.router.navigateByUrl('/admin-chat-room');
+      } else {
+        this.router.navigateByUrl('/user-chat-room');
+      }
+    });
   }
 }
