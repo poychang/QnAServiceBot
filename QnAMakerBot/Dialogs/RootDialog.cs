@@ -28,8 +28,7 @@ namespace QnAMakerBot.Dialogs
         private async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             var message = await result;
-            //TODO: 讓判斷是否呼叫真人客服更聰明
-            if (message.Text.Contains("human"))
+            if (await _userToAgent.IsWantToTalkWithHuman(message as Activity, default(CancellationToken)))
             {
                 var agent = await _userToAgent.IntitiateConversationWithAgentAsync(message as Activity, default(CancellationToken));
                 if (agent == null)

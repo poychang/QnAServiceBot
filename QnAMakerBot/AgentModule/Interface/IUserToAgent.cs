@@ -25,5 +25,11 @@ namespace QnAMakerBot.AgentModule.Interface
         /// <param name="cancellationToken">取消令牌</param>
         /// <returns></returns>
         Task<Agent> IntitiateConversationWithAgentAsync(Activity message, CancellationToken cancellationToken);
+
+        /// <summary>判斷是否想要轉接真人</summary>
+        /// <param name="message">活動訊息</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns></returns>
+        Task<bool> IsWantToTalkWithHuman(Activity message, CancellationToken cancellationToken);
     }
 }

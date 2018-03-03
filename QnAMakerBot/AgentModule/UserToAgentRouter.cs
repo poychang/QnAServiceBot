@@ -1,7 +1,11 @@
-﻿using Microsoft.Bot.Connector;
+﻿using System.Configuration;
+using System.Net.Http;
+using Microsoft.Bot.Connector;
 using QnAMakerBot.AgentModule.Interface;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
+using Microsoft.Bot.Builder.Luis.Models;
 using QnAMakerBot.AgentModule.Models;
 
 namespace QnAMakerBot.AgentModule
@@ -54,6 +58,27 @@ namespace QnAMakerBot.AgentModule
             reply.Text = message.Text;
 
             await Utility.SendToConversationAsync(reply);
+        }
+
+        /// <inheritdoc/>
+        public async Task<bool> IsWantToTalkWithHuman(Activity message, CancellationToken cancellationToken)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var luisAppId = ConfigurationManager.AppSettings["LuisAppId"];
+                var luisSubscriptionKey = ConfigurationManager.AppSettings["LuisSubscriptionKey"];
+                var luisEndpoint = ConfigurationManager.AppSettings["LuisEndpoint"];
+
+                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", luisSubscriptionKey);
+                var response = await httpClient.GetAsync($@"{luisEndpoint}{luisAppId}/?verbose=true&q={message.Text}", cancellationToken);
+
+                if (!response.IsSuccessStatusCode) return false;
+
+                // get LUIS response content as string
+                var contents = await response.Content.ReadAsStringAsync();
+                var result = new JavaScriptSerializer().Deserialize<LuisResult>(contents);
+                return result.TopScoringIntent.Intent.Equals("Want To Talk With Human") && result.TopScoringIntent.Score > 0.5;
+            }
         }
     }
 }
