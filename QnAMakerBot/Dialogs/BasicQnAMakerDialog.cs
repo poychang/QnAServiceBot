@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.Bot.Builder.Azure;
 using Microsoft.Bot.Builder.CognitiveServices.QnAMaker;
 
@@ -16,8 +15,8 @@ namespace QnAMakerBot.Dialogs
         public BasicQnAMakerDialog() : base(
             new QnAMakerService(
                 new QnAMakerAttribute(
-                    /*Utils.GetAppSetting("QnASubscriptionKey"), Utils.GetAppSetting("QnAKnowledgebaseId"),*/
-                    ConfigurationManager.AppSettings["QnASubscriptionKey"], ConfigurationManager.AppSettings["QnAKnowledgebaseId"],
+                    Utils.GetAppSetting("QnASubscriptionKey"), Utils.GetAppSetting("QnAKnowledgebaseId"),
+                    //ConfigurationManager.AppSettings["QnASubscriptionKey"], ConfigurationManager.AppSettings["QnAKnowledgebaseId"],
                     "我找不到適合的答案耶 >.<", 0.5)
             )
         )

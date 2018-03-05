@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Net.Http;
+﻿using System.Net.Http;
 using Microsoft.Bot.Connector;
 using QnAMakerBot.AgentModule.Interface;
 using System.Threading;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Microsoft.Bot.Builder.Luis.Models;
 using QnAMakerBot.AgentModule.Models;
+using Microsoft.Bot.Builder.Azure;
 
 namespace QnAMakerBot.AgentModule
 {
@@ -65,9 +65,9 @@ namespace QnAMakerBot.AgentModule
         {
             using (var httpClient = new HttpClient())
             {
-                var luisAppId = ConfigurationManager.AppSettings["LuisAppId"];
-                var luisSubscriptionKey = ConfigurationManager.AppSettings["LuisSubscriptionKey"];
-                var luisEndpoint = ConfigurationManager.AppSettings["LuisEndpoint"];
+                var luisAppId = Utils.GetAppSetting("LuisAppId");
+                var luisSubscriptionKey = Utils.GetAppSetting("LuisSubscriptionKey");
+                const string luisEndpoint = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/";
 
                 httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", luisSubscriptionKey);
                 var response = await httpClient.GetAsync($@"{luisEndpoint}{luisAppId}/?verbose=true&q={message.Text}", cancellationToken);
