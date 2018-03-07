@@ -5,7 +5,7 @@ import {DirectLine} from 'botframework-directlinejs';
 import {BotChatService, BotToken, User, UserService} from '../shared';
 
 @Component({
-  selector: 'app-admin-chat-room',
+  selector: 'app-agent-chat-room',
   templateUrl: './agent-chat-room.component.html',
   styleUrls: ['./agent-chat-room.component.scss']
 })

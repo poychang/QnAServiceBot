@@ -27,8 +27,8 @@ export class AuthComponent implements OnInit {
     this.userService.attemptAuth(credentials)
       .subscribe(
         (user) => {
-          if (user.role === 'admin') {
-            this.router.navigateByUrl('/admin-chat-room');
+          if (user.role === 'agent') {
+            this.router.navigateByUrl('/agent-chat-room');
           } else {
             this.router.navigateByUrl('/user-chat-room');
           }

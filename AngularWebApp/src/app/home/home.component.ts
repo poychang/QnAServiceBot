@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
 
   enter() {
     this.user$.subscribe(user => {
-      if (user.role === 'admin') {
-        this.router.navigateByUrl('/admin-chat-room');
+      if (user.role === 'agent') {
+        this.router.navigateByUrl('/agent-chat-room');
       } else {
         this.router.navigateByUrl('/user-chat-room');
       }

@@ -20,7 +20,7 @@ const chatRoomRouting: ModuleWithProviders = RouterModule.forChild([
     canActivate: [AuthGuard]
   },
   {
-    path: 'admin-chat-room',
+    path: 'agent-chat-room',
     component: AgentChatRoomComponent,
     resolve: {
       botChatToken: ChatTokenResolver

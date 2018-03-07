@@ -9,7 +9,7 @@ namespace QnAServiceBot.Services
         {
             new UserModel(){ Id="1", Username = "Poy", Image = "./assets/images/man.svg", Role = "user" },
             new UserModel(){ Id="2", Username = "Mary", Image = "./assets/images/woman.svg", Role = "user" },
-            new UserModel(){ Id="3", Username = "IT", Image = "./assets/images/it-guy.svg", Role = "admin" },
+            new UserModel(){ Id="3", Username = "I am Agent", Image = "./assets/images/agent.svg", Role = "agent" },
             new UserModel(){ Id="4", Username = "Bot", Image = "./assets/images/bot.svg", Role = "bot" },
         };
     }
