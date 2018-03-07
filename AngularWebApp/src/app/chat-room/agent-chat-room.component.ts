@@ -5,11 +5,11 @@ import {DirectLine} from 'botframework-directlinejs';
 import {BotChatService, BotToken, User, UserService} from '../shared';
 
 @Component({
-  selector: 'app-admin-chat-room',
-  templateUrl: './admin-chat-room.component.html',
-  styleUrls: ['./admin-chat-room.component.scss']
+  selector: 'app-agent-chat-room',
+  templateUrl: './agent-chat-room.component.html',
+  styleUrls: ['./agent-chat-room.component.scss']
 })
-export class AdminChatRoomComponent implements OnInit {
+export class AgentChatRoomComponent implements OnInit {
   botChatToken = this.route.snapshot.data['botChatToken'].token;
   currentUser: User;
   connected: boolean = false;

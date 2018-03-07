@@ -15,8 +15,7 @@ export class AuthComponent implements OnInit {
   authForm: FormGroup;
 
   constructor(private router: Router, private userService: UserService, private fb: FormBuilder) {
-    this.authForm = this.fb.group(
-      { 'username': ['', Validators.required], 'password': ['', Validators.required] });
+    this.authForm = this.fb.group({ 'username': ['', Validators.required] });
   }
 
   ngOnInit() {}
@@ -26,16 +25,17 @@ export class AuthComponent implements OnInit {
 
     const credentials = this.authForm.value;
     this.userService.attemptAuth(credentials)
-      .pipe(tap((user) => {
-        if (user.role === 'admin') {
-          this.router.navigateByUrl('/admin-chat-room');
-        } else {
-          this.router.navigateByUrl('/user-chat-room');
-        }
-      }))
-      .subscribe(() => {}, err => {
-        console.log(err);
-        this.error = '登入失敗，請重新登入';
-      });
+      .subscribe(
+        (user) => {
+          if (user.role === 'agent') {
+            this.router.navigateByUrl('/agent-chat-room');
+          } else {
+            this.router.navigateByUrl('/user-chat-room');
+          }
+        },
+        error => {
+          console.log(error);
+          this.error = '登入失敗，請重新登入';
+        });
   }
 }
