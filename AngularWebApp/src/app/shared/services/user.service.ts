@@ -36,7 +36,7 @@ export class UserService {
   }
 
   purgeAuth() {
-    this.apiService.get(`/user/logout`).subscribe();
+    this.apiService.get(`/user/logout`).subscribe(() => {}, () => {});
     this.currentUserSubject.next({} as User);
     this.isAuthenticatedSubject.next(false);
   }
