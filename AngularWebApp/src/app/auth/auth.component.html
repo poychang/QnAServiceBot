@@ -9,12 +9,6 @@
               帳號不可以空白
             </mat-error>
           </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="password" type="password" placeholder="Password">
-            <mat-error *ngIf="authForm.get('password').hasError('required')">
-              密碼不可以空白
-            </mat-error>
-          </mat-form-field>
           <button mat-button color="primary" [disabled]="!authForm.valid" type="submit">送出</button>
         </form>
         <span class="login-message body-1">{{ error }}</span>

@@ -15,8 +15,7 @@ export class AuthComponent implements OnInit {
   authForm: FormGroup;
 
   constructor(private router: Router, private userService: UserService, private fb: FormBuilder) {
-    this.authForm = this.fb.group(
-      { 'username': ['', Validators.required], 'password': ['', Validators.required] });
+    this.authForm = this.fb.group({ 'username': ['', Validators.required] });
   }
 
   ngOnInit() {}
