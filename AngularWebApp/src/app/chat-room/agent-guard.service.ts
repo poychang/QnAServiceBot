@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 import {UserService} from '../shared';
 
 @Injectable()
-export class AdminGuard implements CanActivate {
+export class AgentGuard implements CanActivate {
   constructor(private router: Router, private userService: UserService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
