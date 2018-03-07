@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using QnAServiceBot.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using QnAServiceBot.Services;
 
 namespace QnAServiceBot.Controllers
 {
@@ -17,18 +17,12 @@ namespace QnAServiceBot.Controllers
     public class UserController : Controller
     {
         private readonly IConfiguration _configuration;
+        private readonly UserService _userService;
 
-        private readonly List<UserModel> _userList = new List<UserModel>()
-        {
-            new UserModel(){ Id="1", Username = "Poy", Image = "./assets/images/man.svg", Role = "user" },
-            new UserModel(){ Id="2", Username = "Mary", Image = "./assets/images/woman.svg", Role = "user" },
-            new UserModel(){ Id="3", Username = "IT", Image = "./assets/images/it-guy.svg", Role = "admin" },
-            new UserModel(){ Id="4", Username = "Bot", Image = "./assets/images/bot.svg", Role = "bot" },
-        };
-
-        public UserController(IConfiguration configuration)
+        public UserController(IConfiguration configuration, UserService userService)
         {
             _configuration = configuration;
+            _userService = userService;
         }
 
         // api/user/login
@@ -37,7 +31,7 @@ namespace QnAServiceBot.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody]LoginModel login)
         {
-            var user = _userList.SingleOrDefault(p =>
+            var user = _userService.UserList.SingleOrDefault(p =>
                 string.Equals(p.Username, login.Username, StringComparison.OrdinalIgnoreCase));
             if (user == null)
             {
@@ -76,7 +70,7 @@ namespace QnAServiceBot.Controllers
 
         private UserModel FetchUserInfo(string username = null)
         {
-            return _userList.SingleOrDefault(p => string.Equals(
+            return _userService.UserList.SingleOrDefault(p => string.Equals(
                 p.Username,
                 username ?? Request.Cookies["username"],
                 StringComparison.OrdinalIgnoreCase)
