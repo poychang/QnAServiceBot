@@ -13,7 +13,8 @@ namespace QnAServiceBot.Mobile
         {
             InitializeComponent();
 
-			MainPage = new QnAServiceBot.Mobile.MainPage();
+            var rootPage = new NavigationPage(new LoginPage());
+            MainPage = rootPage;
         }
 
         protected override void OnStart ()
