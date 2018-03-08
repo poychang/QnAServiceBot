@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QnAServiceBot.Mobile.UserPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="MyStackLayout">
+            <Label Text="Welcome to User!"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="檢查 Token"
+                   x:Name="EntryToken"
+                   HorizontalOptions="FillAndExpand" />
+            <!--<WebView x:Name="Browser" VerticalOptions="FillAndExpand" WidthRequest="300" HeightRequest="1000" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
