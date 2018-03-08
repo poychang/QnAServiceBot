@@ -37,7 +37,7 @@ namespace QnAServiceBot.Mobile
                     break;
 
                 case "user":
-                    await Navigation.PushAsync(new UserPage());
+                    await Navigation.PushAsync(new UserPage(user));
                     break;
             }
 
