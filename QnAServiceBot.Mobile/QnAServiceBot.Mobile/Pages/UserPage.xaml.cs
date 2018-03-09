@@ -1,12 +1,14 @@
-﻿using Newtonsoft.Json;
-using QnAServiceBot.Mobile.Models;
-using System;
+﻿using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using QnAServiceBot.Mobile.Models;
+using QnAServiceBot.Mobile.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace QnAServiceBot.Mobile
+namespace QnAServiceBot.Mobile.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
@@ -16,10 +18,12 @@ namespace QnAServiceBot.Mobile
             InitializeComponent();
 
             CurrentUser = user;
+            BotService = new BotService();
         }
 
         private UserModel CurrentUser { get; }
         private BotTokenModel BotToken { get; set; }
+        private BotService BotService { get; }
 
         protected override void OnAppearing()
         {
@@ -29,7 +33,7 @@ namespace QnAServiceBot.Mobile
 
         private async void InitPage()
         {
-            await FetchBotToken();
+            BotToken = await BotService.FetchBotToken(CurrentUser, CancellationToken.None);
 
             MyStackLayout.Children.Add(new WebView()
             {
@@ -38,19 +42,6 @@ namespace QnAServiceBot.Mobile
                 WidthRequest = 300,
                 HeightRequest = 1000
             });
-        }
-
-        private async Task FetchBotToken()
-        {
-            var httpClient = new HttpClient();
-            var response = await httpClient.PostAsync(
-                new Uri($@"{Constants.API_URL}/BotToken/generate/{CurrentUser.Username}"),
-                new StringContent(JsonConvert.SerializeObject("")));
-
-            if (!response.IsSuccessStatusCode) return;
-
-            var data = await response.Content.ReadAsStringAsync();
-            BotToken = JsonConvert.DeserializeObject<BotTokenModel>(data);
         }
     }
 }

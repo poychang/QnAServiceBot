@@ -10,19 +10,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="LoginPage.xaml">
+    <EmbeddedResource Update="Pages\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UserPage.xaml">
+    <EmbeddedResource Update="Pages\UserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

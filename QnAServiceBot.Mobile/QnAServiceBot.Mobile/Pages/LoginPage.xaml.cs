@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using QnAServiceBot.Mobile.Models;
-using System;
+﻿using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using Newtonsoft.Json;
+using QnAServiceBot.Mobile.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace QnAServiceBot.Mobile
+namespace QnAServiceBot.Mobile.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
