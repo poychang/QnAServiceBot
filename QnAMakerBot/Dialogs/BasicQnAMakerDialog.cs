@@ -17,7 +17,7 @@ namespace QnAMakerBot.Dialogs
                 new QnAMakerAttribute(
                     Utils.GetAppSetting("QnASubscriptionKey"), Utils.GetAppSetting("QnAKnowledgebaseId"),
                     //ConfigurationManager.AppSettings["QnASubscriptionKey"], ConfigurationManager.AppSettings["QnAKnowledgebaseId"],
-                    "我找不到適合的答案耶 >.<", 0.5)
+                    "我找不到適合的答案耶 >.<", 0.25)
             )
         )
         { }
