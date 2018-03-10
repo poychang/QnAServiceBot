@@ -77,7 +77,7 @@ namespace QnAMakerBot.AgentModule
                 // get LUIS response content as string
                 var contents = await response.Content.ReadAsStringAsync();
                 var result = new JavaScriptSerializer().Deserialize<LuisResult>(contents);
-                return result.TopScoringIntent.Intent.Equals("Want To Talk With Human") && result.TopScoringIntent.Score > 0.5;
+                return result.TopScoringIntent.Intent.Equals("Want To Talk With Human") && result.TopScoringIntent.Score > 0.8;
             }
         }
     }
