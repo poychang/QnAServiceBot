@@ -1,0 +1,16 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <button mat-raised-button color="primary" *ngIf="isAuthenticated" (click)="enter()">進入諮詢室</button>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" style="width:1200px">
+    <mat-card>
+      <p>使用者端畫面</p>
+      <p>使用者帳號：poy, mary</p>
+      <img src="assets/images/samples/user-side-sample.png" alt="User Sample" style="width:500px">
+    </mat-card>
+    <mat-card>
+      <p>客服人員端畫面</p>
+      <p>客服人員帳號：agent</p>
+      <img src="assets/images/samples/agent-side-sample.png" alt="Agent Sample" style="width:500px">
+    </mat-card>
+  </div>
+  <br>
+</div>

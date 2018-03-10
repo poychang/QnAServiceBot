@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QnAServiceBot.Mobile.Pages.AgentPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="MessagesListView"
+                      Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                      ItemsSource="{Binding ConversationList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Text}" TextColor="Black" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Message" />
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Send" Clicked="SendButtonClicked" />
+            <Button Grid.Row="3" Grid.Column="0" Text="Connect" Clicked="ConnectButtonClicked" />
+            <Button Grid.Row="3" Grid.Column="1" Text="Stop" Clicked="StopButtonClicked" />
+            <Entry Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="CheckMessage" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

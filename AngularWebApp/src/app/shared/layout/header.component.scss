@@ -1,0 +1,19 @@
+header {
+  background: #f3f3f3;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.user-pic {
+  width: 35px;
+}
+
+.user-name {
+  padding: 10px;
+}

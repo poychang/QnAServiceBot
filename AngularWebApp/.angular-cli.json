@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../QnAServiceBot/wwwroot",
       "assets": [
         "assets",
         "favicon.ico"
@@ -19,6 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/botframework-webchat/botchat.css",
+        "../node_modules/botframework-webchat/botchat-fullwindow.css",
         "styles.scss"
       ],
       "scripts": [],

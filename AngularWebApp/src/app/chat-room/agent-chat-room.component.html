@@ -1,0 +1,27 @@
+<div class="container container-fluid">
+  <div fxLayout="row" fxLayout.lt-sm="column">
+    <div fxFlex="30%" class="chat-room-menu">
+      <mat-card>
+        <mat-card-header>
+          <img mat-card-avatar [src]="currentUser?.image" *ngIf="currentUser?.image" class="user-pic" />
+          <mat-card-title>服務人員專區</mat-card-title>
+          <mat-card-subtitle>{{ currentUser?.username }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button [color]="connected ? 'primary' : ''" (click)="connect()">{{ connectState }}</button>
+          <button mat-raised-button color="warn" (click)="stopConversation()">停止對話</button>
+        </mat-card-actions>
+        <mat-card-content>
+          <div>{{ message }}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="70%" class="chat-room">
+      <mat-card>
+        <mat-card-content>
+          <app-chat-box [currentUser]="currentUser" [token]="botChatToken"></app-chat-box>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

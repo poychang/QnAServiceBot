@@ -1,0 +1,18 @@
+<div class="container" fxLayoutAlign="center center">
+  <mat-card class="login-panel">
+    <mat-tab-group dynamicHeight="true" class="tab-size">
+      <mat-tab label="登入">
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()" fxLayout="column" class="login-form">
+          <mat-form-field>
+            <input matInput formControlName="username" type="text" placeholder="Username">
+            <mat-error *ngIf="authForm.get('username').hasError('required')">
+              帳號不可以空白
+            </mat-error>
+          </mat-form-field>
+          <button mat-button color="primary" [disabled]="!authForm.valid" type="submit">送出</button>
+        </form>
+        <span class="login-message body-1">{{ error }}</span>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
