@@ -34,6 +34,7 @@ namespace QnAServiceBot.Mobile.Pages
             switch (user.Role)
             {
                 case "agent":
+                    await Navigation.PushAsync(new AgentPage(user));
                     break;
 
                 case "user":
